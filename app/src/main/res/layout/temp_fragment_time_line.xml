@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2E394"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listview_time_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#F2E394"
+        android:dividerHeight="10sp"></ListView>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_action_content_new"
+        fab:fab_colorNormal="#2879A9"
+        fab:fab_colorPressed="#0000dd"
+        fab:fab_colorRipple="#00000f" />
+
+</FrameLayout>
+
+    <!--ListView listView=(ListView)view.findViewById(R.id.listview_time_line);--><!--ArrayList<String> list=new ArrayList<String>();--><!--for (int i = 0; i <10 ; i++) {--><!--list.add("a");--><!--}--><!--TimeLineAdapter adapter=new TimeLineAdapter(getActivity(),0,list);--><!--listView.setAdapter(adapter);--><!--FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);--><!--fab.attachToListView(listView);-->
