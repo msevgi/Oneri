@@ -14,7 +14,6 @@ public class LoginActivity extends BaseActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
         TextView textView_skip = (TextView) findViewById(R.id.textview_skip);
         textView_skip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,5 +22,10 @@ public class LoginActivity extends BaseActionBarActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public int getLayoutResource() {
+        return R.layout.login;
     }
 }

@@ -6,12 +6,23 @@
     android:background="@color/activity_background_color"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/listview_time_line"
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/divider_color"
-        android:dividerHeight="10sp"></ListView>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/activity_background_color"
+            android:dividerHeight="15dp"></ListView>
+
+
+    </com.baoyz.widget.PullRefreshLayout>
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"

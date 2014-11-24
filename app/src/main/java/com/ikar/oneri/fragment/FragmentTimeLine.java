@@ -31,7 +31,6 @@ public class FragmentTimeLine extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mAdapter = new ListOfTrendPagerAdapter(getChildFragmentManager(), getActivity().getBaseContext());
-
         mViewPager = (ViewPager) view.findViewById(R.id.fragment_list_of_trend_viewpager);
         mViewPager.setAdapter(mAdapter);
 

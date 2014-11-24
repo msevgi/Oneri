@@ -6,6 +6,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -21,56 +22,33 @@ import com.squareup.otto.Subscribe;
 public class MainActivity extends BaseActionBarActivity implements ExpandableListView.OnGroupClickListener, ExpandableListView.OnChildClickListener {
     public static String title;
     private static int previousPosition = 0;
-    // left menudeki itemlarin tutuldugu liste
-    // left menudeki itemlari gosteren listview
     private ExpandableListView drawerListView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Fragment fragment = null;
     private LinearLayout linearLayout;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        toolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         title = getString(R.string.app_name);
-        // get list items from strings.xml
+
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
-        // get ListView defined in activity_main.xml
         drawerListView = (ExpandableListView) findViewById(R.id.left_drawer_list);
         drawerListView.setGroupIndicator(null);
-        // App Icon
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationDrawerExpandableListViewAdapter adapter = new NavigationDrawerExpandableListViewAdapter(this);
-//        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(this, R.layout.navigation_drawer_item, drawerListViewItems);
-        // Set the adapter for the list view
         drawerListView.setAdapter(adapter);
         drawerListView.setOnGroupClickListener(this);
         drawerListView.setOnChildClickListener(this);
         fragment = new FragmentTimeLine();
         setDrawerLayout(0, 0);
-
-//        // left menudeki itemlarin click yakalar.
-//        drawerListView.setOnItemClickListener(new ListView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView parent, View view, int position, long id) {
-//                // TODO Auto-generated method stub
-//
-//                switch (position) {
-//                    case 0:
-//                        fragment = new FragmentAktuel();
-//                        break;
-////                    case 1:
-////                        fragment = new FragmentEskiAktuel();
-////                        break;
-//
-//                    default:
-//                        break;
-//                }
-//                setDrawerLayout(position);
-//            }
-//
-//        });
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
                 drawerLayout, /* DrawerLayout object */
                 R.drawable.ic_drawer, /* nav drawer icon to replace 'Up' caret */
@@ -81,10 +59,15 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
         // Set actionBarDrawerToggle as the DrawerListener
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         // just styling option add shadow the right edge of the drawer
         // drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+    }
+
+    @Override
+    public int getLayoutResource() {
+        return R.layout.activity_main;
     }
 
     @Override
@@ -107,7 +90,7 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
             drawerListView.setSelectedGroup(groupPosition);
             if (childPosition != -1)
                 drawerListView.setSelectedChild(groupPosition, childPosition, true);
-            setTitle(title);
+            toolbar.setTitle(title);
         }
         drawerLayout.closeDrawer(linearLayout);
     }
