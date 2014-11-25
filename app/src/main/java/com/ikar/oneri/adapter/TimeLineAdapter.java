@@ -42,6 +42,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineAdapter.ViewHo
     }
 
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
 

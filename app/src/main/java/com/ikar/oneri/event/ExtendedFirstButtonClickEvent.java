@@ -1,4 +1,4 @@
-package com.ikar.oneri.event_model;
+package com.ikar.oneri.event;
 
 /**
  * Created by msevgi on 11/25/2014.

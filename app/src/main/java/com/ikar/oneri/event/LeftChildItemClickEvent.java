@@ -1,13 +1,13 @@
-package com.ikar.oneri.event_model;
+package com.ikar.oneri.event;
 
 /**
  * Created by mustafasevgi on 09/11/14.
  */
-public class LeftItemClickModel {
+public class LeftChildItemClickEvent {
     private int groupPosition;
     private int childPosition;
 
-    public LeftItemClickModel(int groupPosition, int childPosition) {
+    public LeftChildItemClickEvent(int groupPosition, int childPosition) {
         this.groupPosition = groupPosition;
         this.childPosition = childPosition;
     }

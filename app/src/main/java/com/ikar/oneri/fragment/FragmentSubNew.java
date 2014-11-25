@@ -31,7 +31,7 @@ public class FragmentSubNew extends BaseFragment implements View.OnClickListener
 
 //        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         floatingActionButton = (FloatingActionButton) view.findViewById(R.id.fab);
-//        pullRefreshLayout = (PullRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        pullRefreshLayout = (PullRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
 //        floatingActionButton.attachToRecyclerView(recyclerView);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         listView = (ListView) view.findViewById(R.id.listview);
@@ -40,10 +40,10 @@ public class FragmentSubNew extends BaseFragment implements View.OnClickListener
         listView.setAdapter(new SubTimeLineAdapter(getActivity(), 0, new ArrayList<String>()));
 //        recyclerView.setAdapter(new TimeLineAdapter(new ArrayList<String>()));
 //
-//        pullRefreshLayout.setRefreshStyle(PullRefreshLayout.STYLE_WATER_DROP);
-//
-//
-//        pullRefreshLayout.setOnRefreshListener(this);
+        pullRefreshLayout.setRefreshStyle(PullRefreshLayout.STYLE_WATER_DROP);
+
+
+        pullRefreshLayout.setOnRefreshListener(this);
     }
 
 
@@ -62,11 +62,11 @@ public class FragmentSubNew extends BaseFragment implements View.OnClickListener
 
     @Override
     public void onRefresh() {
-//        pullRefreshLayout.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                pullRefreshLayout.setRefreshing(false);
-//            }
-//        }, 4000);
+        pullRefreshLayout.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pullRefreshLayout.setRefreshing(false);
+            }
+        }, 4000);
     }
 }

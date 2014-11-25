@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.ikar.oneri.R;
+import com.ikar.oneri.view.ExtendedImageView;
 
 import java.util.List;
 
@@ -20,7 +21,9 @@ public class SubTimeLineAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.fragment_time_line_row, parent, false);
+        convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.fragment_sub_time_line_row, parent, false);
+        ExtendedImageView extendedImageView= (ExtendedImageView) convertView.findViewById(R.id.imageview_item);
+        extendedImageView.setImageResource(getContext().getResources().getDrawable(R.drawable.kitap1));
         return convertView;
     }
 

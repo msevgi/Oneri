@@ -10,6 +10,7 @@
     <string name="sub_title_list_of_trend_item">En Populer</string>
     <string name="sub_title_list_of_bestofall_time">En En Iyisi</string>
     <string name="create_suggestion">Create Suggestion</string>
+    <string name="action_about">About</string>
     <string-array name="items">
         <item>Aktüel Ürünler</item>
     </string-array>

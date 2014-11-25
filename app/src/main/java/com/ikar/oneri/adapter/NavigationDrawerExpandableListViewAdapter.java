@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ikar.oneri.R;
-import com.ikar.oneri.event_model.LeftGroupImageClickModel;
+import com.ikar.oneri.event.LeftGroupImageClickEvent;
 import com.ikar.oneri.model.Category;
 import com.ikar.oneri.provider.BusProvider;
 
@@ -102,7 +102,7 @@ public class NavigationDrawerExpandableListViewAdapter extends BaseExpandableLis
             viewHolderGroup.groupImageview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BusProvider.getInstance().post(new LeftGroupImageClickModel(groupPosition));
+                    BusProvider.getInstance().post(new LeftGroupImageClickEvent(groupPosition));
                 }
             });
             viewHolderGroup.groupNameTextView.setText(item.getName());

@@ -24,8 +24,7 @@
         </activity>
         <activity
             android:name=".activity.CreateSuggestionActivity"
-            android:label="@string/create_suggestion"
-            android:parentActivityName=".activity.MainActivity">
+            android:label="@string/create_suggestion">
 
         </activity>
     </application>

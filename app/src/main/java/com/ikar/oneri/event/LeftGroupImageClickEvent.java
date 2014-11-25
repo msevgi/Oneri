@@ -1,12 +1,12 @@
-package com.ikar.oneri.event_model;
+package com.ikar.oneri.event;
 
 /**
  * Created by mustafasevgi on 09/11/14.
  */
-public class LeftGroupImageClickModel {
+public class LeftGroupImageClickEvent {
     private int groupPosition;
 
-    public LeftGroupImageClickModel(int groupPosition) {
+    public LeftGroupImageClickEvent(int groupPosition) {
         this.groupPosition = groupPosition;
     }
 

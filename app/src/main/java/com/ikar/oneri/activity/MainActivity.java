@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -14,7 +15,7 @@ import android.widget.LinearLayout;
 
 import com.ikar.oneri.R;
 import com.ikar.oneri.adapter.NavigationDrawerExpandableListViewAdapter;
-import com.ikar.oneri.event_model.LeftGroupImageClickModel;
+import com.ikar.oneri.event.LeftGroupImageClickEvent;
 import com.ikar.oneri.fragment.FragmentTimeLine;
 import com.squareup.otto.Subscribe;
 
@@ -60,14 +61,13 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
 
-
         // just styling option add shadow the right edge of the drawer
         // drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
     }
 
     @Override
     public int getLayoutResource() {
-        return R.layout.activity_main;
+        return R.layout.layout_main;
     }
 
     @Override
@@ -133,7 +133,6 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
 
     @Override
     public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//        selectItem(groupPosition);
         switch (groupPosition) {
             case 0:
                 title = "Kitap";
@@ -169,8 +168,8 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
     }
 
     @Subscribe
-    public void onGroupIconClick(LeftGroupImageClickModel leftGroupImageClickModel) {
-        int position = leftGroupImageClickModel.getGroupPosition();
+    public void onGroupIconClick(LeftGroupImageClickEvent leftGroupImageClickEvent) {
+        int position = leftGroupImageClickEvent.getGroupPosition();
         if (!drawerListView.isGroupExpanded(position)) {
             drawerListView.collapseGroup(previousPosition);
             drawerListView.expandGroup(position, true);
@@ -178,4 +177,11 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
             drawerListView.collapseGroup(position);
         previousPosition = position;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 }

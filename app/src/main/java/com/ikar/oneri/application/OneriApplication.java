@@ -1,4 +1,4 @@
-package com.ikar.oneri;
+package com.ikar.oneri.application;
 
 import android.app.Application;
 
