@@ -5,4 +5,11 @@
         <item>@string/sub_title_list_of_trend_item</item>
         <item>@string/sub_title_list_of_bestofall_time</item>
     </string-array>
+    <string-array name="cat1">
+        <item>"@array/sub_cat1"</item>
+    </string-array>
+    <string-array name="sub_cat1">
+        <item>@string/subcat1</item>
+    </string-array>
+
 </resources>

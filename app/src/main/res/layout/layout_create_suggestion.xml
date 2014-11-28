@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/activity_background_color">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/activity_background_color">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/activity_create_suggestion_toolbar"
@@ -17,24 +17,70 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:layout_below="@+id/activity_create_suggestion_toolbar" />
+        android:layout_below="@+id/activity_create_suggestion_toolbar"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:layout_below="@+id/textiew"
-        android:background="@drawable/toolbar_shadow" />
+        android:background="@drawable/toolbar_shadow"/>
 
     <com.melnykov.fab.FloatingActionButton xmlns:fab="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/fab"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="82dp"
-        android:transitionName="create_suggestion"
-        android:layout_marginRight="16dp"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/icon_done"
-        fab:fab_colorNormal="#1DE9B6"
-        fab:fab_colorPressed="#00BFA5"
-        fab:fab_colorRipple="@color/fab_colorRipple" />
+                                           android:id="@+id/fab"
+                                           android:layout_width="50dp"
+                                           android:layout_height="50dp"
+                                           android:layout_marginTop="82dp"
+                                           android:transitionName="create_suggestion"
+                                           android:layout_marginRight="16dp"
+                                           android:layout_alignParentRight="true"
+                                           android:src="@drawable/icon_done"
+                                           fab:fab_colorNormal="#1DE9B6"
+                                           fab:fab_colorPressed="#00BFA5"
+                                           fab:fab_colorRipple="@color/fab_colorRipple"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fab"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageview_advice"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/plus"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"/>
+
+            <EditText
+                android:id="@+id/edittext_advice_title"
+                android:layout_width="match_parent"
+                android:maxLength="200"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:hint="@string/advice_title_hint"/>
+
+            <Spinner
+                android:id="@+id/spinner_advice_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawSelectorOnTop="true"
+                android:background="@drawable/spinner_background"
+                android:layout_margin="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_advice_sub_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawSelectorOnTop="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/spinner_background"/>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

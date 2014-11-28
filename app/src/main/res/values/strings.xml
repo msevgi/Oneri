@@ -11,6 +11,15 @@
     <string name="sub_title_list_of_bestofall_time">En En Iyisi</string>
     <string name="create_suggestion">Create Suggestion</string>
     <string name="action_about">About</string>
+    <string name="advice_title_hint">Advice Title</string>
+    <string name="cat1">Kitap</string>
+    <string name="cat2">Muzik</string>
+    <string name="cat3">Oyun</string>
+    <string name="cat4">Elektronik</string>
+    <string name="subcat1">Klasik</string>
+    <string name="subcat2">Yabanci Muzik</string>
+    <string name="subcat3">Mobil Oyun</string>
+    <string name="subcat4">Beyaz Esya</string>
     <string-array name="items">
         <item>Aktüel Ürünler</item>
     </string-array>

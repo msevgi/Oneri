@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ikar.oneri.R;
+import com.ikar.oneri.application.OneriApplication;
 import com.ikar.oneri.event.LeftGroupImageClickEvent;
 import com.ikar.oneri.model.Category;
 import com.ikar.oneri.provider.BusProvider;
-
-import java.util.ArrayList;
 
 
 public class NavigationDrawerExpandableListViewAdapter extends BaseExpandableListAdapter {
@@ -21,38 +20,22 @@ public class NavigationDrawerExpandableListViewAdapter extends BaseExpandableLis
     private static ViewHolderGroup viewHolderGroup;
     private static ViewHolderChild viewHolderChild;
     private LayoutInflater layoutInflater;
-    private ArrayList<Category> categoryList;
 
     public NavigationDrawerExpandableListViewAdapter(Activity activity) {
         layoutInflater = (LayoutInflater.from(activity));
         //TODO fill the arraylist
-        categoryList = new ArrayList<Category>();
-        Category category = new Category();
-        category.setName("Kitap");
-        ArrayList<String> childList = new ArrayList<String>();
-        childList.add("Roman");
-        childList.add("Hikaye");
-        category.setChildList(childList);
-        categoryList.add(category);
-        Category category1 = new Category();
-        category1.setName("Elektronik");
-        ArrayList<String> childList1 = new ArrayList<String>();
-        childList1.add("Televizyon");
-        childList1.add("Bilgisayar");
-        childList1.add("Akilli Telefon");
-        category1.setChildList(childList1);
-        categoryList.add(category1);
+
 
     }
 
     @Override
     public int getGroupCount() {
-        return categoryList.size();
+        return OneriApplication.categoryList.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return categoryList.get(groupPosition).getChildList().size();
+        return OneriApplication.categoryList.get(groupPosition).getChildList().size();
     }
 
     @Override
@@ -92,7 +75,7 @@ public class NavigationDrawerExpandableListViewAdapter extends BaseExpandableLis
             viewHolderGroup = (ViewHolderGroup) convertView.getTag();
         }
 
-        final Category item = categoryList.get(groupPosition);
+        final Category item = OneriApplication.categoryList.get(groupPosition);
         if (item != null) {
             if (!isExpanded) {
                 viewHolderGroup.groupImageview.setBackgroundResource(R.drawable.left_menu_plus);
@@ -120,7 +103,7 @@ public class NavigationDrawerExpandableListViewAdapter extends BaseExpandableLis
         } else {
             viewHolderChild = (ViewHolderChild) convertView.getTag();
         }
-        Category item = categoryList.get(groupPosition);
+        Category item = OneriApplication.categoryList.get(groupPosition);
         if (item != null) {
             viewHolderChild.childTextView.setText(item.getChildList().get(childPosition));
         }
