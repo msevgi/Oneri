@@ -1,5 +1,6 @@
 package com.ikar.oneri.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -19,8 +20,10 @@ import com.ikar.oneri.event.LeftGroupImageClickEvent;
 import com.ikar.oneri.fragment.FragmentTimeLine;
 import com.squareup.otto.Subscribe;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends BaseActionBarActivity implements ExpandableListView.OnGroupClickListener, ExpandableListView.OnChildClickListener {
+
+public class MainActivity extends BaseActionBarActivity implements ExpandableListView.OnGroupClickListener, ExpandableListView.OnChildClickListener, View.OnClickListener {
     public static String title;
     private static int previousPosition = 0;
     private ExpandableListView drawerListView;
@@ -29,6 +32,7 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
     private Fragment fragment = null;
     private LinearLayout linearLayout;
     private Toolbar toolbar;
+    private CircleImageView imageViewProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         title = getString(R.string.app_name);
 
+        imageViewProfile = (CircleImageView) findViewById(R.id.profile_image);
+        imageViewProfile.setOnClickListener(this);
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         drawerListView = (ExpandableListView) findViewById(R.id.left_drawer_list);
         drawerListView.setGroupIndicator(null);
@@ -184,4 +190,13 @@ public class MainActivity extends BaseActionBarActivity implements ExpandableLis
         return true;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.profile_image:
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

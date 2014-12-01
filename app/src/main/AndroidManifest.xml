@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ikar.oneri">
+    package="com.ikar.oneri">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="Oneri.com"
-        android:name=".application.OneriApplication"
-        android:theme="@style/AppTheme">
+        android:name=".application.OneriApplication">
         <activity
             android:name=".activity.LoginActivity"
             android:label="Login"
@@ -16,18 +15,23 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.CreateSuggestionActivity"
-            android:label="@string/create_suggestion">
+            android:label="@string/create_suggestion"
+            android:theme="@style/AppThemeNoActionBar">
 
         </activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
